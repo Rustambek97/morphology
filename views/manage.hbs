@@ -1,0 +1,59 @@
+<main style="height: 90vh;">
+    <div class="ui grid">
+        <div class="ui twelve wide column">
+            <h2>Boshqarish</h2>
+        </div>
+        <div class="ui right aligned four wide column">
+            <a href="/sentence/manage/all" class="ui primary button">Barcha matnlar</a>
+        </div>
+    </div>
+    <br>
+    <div class="ui fluid card">
+        <div class="content">
+            <div class="ui secondary menu">
+                <div class="item active" data-tab="text">
+                    <i class="ui font icon"></i> Text
+                </div>
+                <div class="item" data-tab="file">
+                    <i class="ui file code icon"></i> File
+                </div>
+                <div class="item" data-tab="download">
+                    <i class="ui cloud download icon"></i>Yuklab olish
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="ui tab" data-tab="text">
+                <form action="/sentence/manage" method="POST" class="ui form">
+                    <div class="field">
+                        <label>Text</label>
+                        <textarea name="text" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="ui primary button">Yuklash</button>
+                </form>
+                <br>
+                <p class="ui blue"><b>Diqqat: </b>Matn butunligicha qoshiladi!</p>
+            </div>
+            <div class="ui tab" data-tab="file">
+                <form class="ui form" method='post' action='/sentence/manage/upload' enctype="multipart/form-data">
+                    <div class="ui field">
+                        <label>File ni tanlang</label>
+                        <input type='file' name='text'>
+                    </div>
+                    <button type="submit" class="ui primary button">Fayl ni yuklash</button>
+                </form>
+                <br>
+                <p class="ui blue">
+                    <b>Diqqat: </b>
+                    File XML formatda bolishi lozim. Oddiy file qabul qilnmaydi!
+                    <br>
+                    <a href="manage/structure"> <i class="ui linkify icon"></i> XML Structure</a>
+                </p>
+            </div>
+            <div class="ui tab" data-tab="download">
+                <!-- Tab Content !-->
+            </div>
+        </div>
+    </div>
+</main>

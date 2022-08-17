@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js" integrity="sha512-Idr7xVNnMWCsgBQscTSCivBNWWH30oo/tzYORviOCrLKmBaRxRflm2miNhTFJNVmXvCtzgms5nlJF4az2hiGnA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="/css/base.css">
+
+    <script src="/lib/init.js"></script>
+
+    <title>Morfologiya | {{title}}</title>
+</head>
+
+<body>
+
+<nav>
+    <img class="only__logo" src="/svg/logo-only.svg" height="40px" alt="logo"/>
+    <img class="wide__logo" src="/svg/small-logo.svg" height="40px" alt="logo"/>
+    <ul>
+        <li>
+            <a href="/">
+                <i class="ui large icon home"></i> <span>Bosh sahifa</span>
+            </a>
+        </li>
+        <li>
+            <a href="/actives">
+                <i class="ui large icon users"></i> <span>Faollar</span>
+            </a>
+        </li>
+        <li>
+            <a href="/about">
+                <i class="ui large icon compass "></i><span>Biz haqimizda</span>
+            </a>
+        </li>
+        {{!-- {{#if user.isAdmin}}
+            <li>
+                <a href="/sentence/manage">
+                    <i class="ui large icon hand point up outline"></i><span>Boshqarish</span>
+                </a>
+            </li>
+        {{/if}} --}}
+    </ul>
+    <ul>
+        <li>
+            {{#if user}}
+                <a class="username">
+                    <i class="ui large icon user circle outline "></i><span>@{{user.name}}</span>
+                    
+                </a> 
+                <a class="nav__red__link" href="/logout">
+                    <i class="ui large icon sign-in "></i><span>Chiqish</span>
+                </a>
+            {{else}}
+                <a class="nav__red__link" href="/login">
+                    <i class="ui large icon sign-in "></i><span>Kirish</span>
+                </a>
+            {{/if}}
+        </li>
+    </ul>
+</nav>
+    {{{body}}}
+    <br><br>
+    {{!-- <footer>
+        Morfologiya 2021 (c)
+    </footer> --}}
+</body>
+</html>

@@ -1,0 +1,166 @@
+<main>
+    <div class="ui grid col-cl">
+        <div class="eight wide column">
+            <div class="ui  buttons">
+                <div id="show-tags-button" class="ui labeled icon primary button">
+                    <i class="ui tags icon"></i>
+                    Teglar
+                </div>
+                <div id="commit-button" class="ui right labeled icon positive button">
+                    <i class="ui check icon"></i>
+                    Tasdiqlash
+                </div>
+            </div>
+        </div>
+        <div class="eight wide right aligned column">
+            <div class="ui buttons">
+                <button id="syntax" class="ui button active">Sintaktik</button>
+                <button id="mofology" class="ui button">Morfologik</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="ui horizontal large icon label">
+        <i class="ui icon align left"></i>
+        {{sentence.id}}
+    </div>
+
+    <div class="ui fluid card">
+        <div id="sentence-container"></div>
+    </div>
+    <br>
+    <div class="ui center aligned grid">
+        <div class="column">
+            <button id="add-word" class="ui icon button">
+                <i class="ui plus icon"></i>
+            </button>
+        </div>
+        <div class="column">
+            <button id="split-word" class="ui icon button">
+                <i class="ui minus icon"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="ui grid">
+        <div class="two wide column">
+            <div id="nav-left" class="nav-button ui left floated icon button">
+                <i class="ui icon left arrow"></i>
+            </div>
+        </div>
+
+        <div class="center aligned twelve wide column">
+            <h2 id="current__word"></h2>
+        </div>
+
+        <div class="two wide right aligned column">
+            <div id="nav-right" class="nav-button ui right floated right icon button">
+                <i class="ui icon right arrow"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui grid">
+        <div class="fourteen wide column">
+            <div class="tag-list">
+                <i id="syntax-caret" class="ui icon caret right"></i>
+                S:
+                <span id="syntax-tags" class="red-tag text"></span>
+            </div>
+            <div class="tag-list">
+                <i id="morphology-caret" class="ui icon caret right"></i>
+                M:
+                <span id="morphology-tags" class="blue-tag text"></span>
+            </div>
+        </div>
+        <div class="two wide column">
+            <div id="remove-tag" class="nav-button ui right floated icon button">
+                <i class="ui icon remove"></i>
+            </div>
+        </div>
+    </div>
+
+    <div id="syntax-grid" class="ui grid hidden">
+    </div>
+
+    <div id="morfology-grid" class="ui grid hidden">
+    </div>
+
+    <div id="show-tags-modal" class="ui modal">
+        <div class="header"><i class="ui icon tags"></i> Teglar</div>
+        <div class="scrolling content">
+            <h3>Sintaktik</h3>
+            <p id="modal-syntax-tags"></p>
+            <h3>Morfologik</h3>
+            <p id="modal-morphology-tags" data-title="Alert" data-content="Bu teg oldin berilgan"></p>
+        </div>
+    </div>
+
+    <div id="warning" class="ui mini modal">
+        <div class="header">Diqqat</div>
+        <div class="content">
+            <h4>Tasdiqlash uchun barcha so'zlarni teglash lozim!</h4>
+        </div>
+        <div class="actions">
+            <div class="ui red cancel button">Yopish</div>
+        </div>
+    </div>
+
+    <div id="hidden-form">
+        <form id="send_form" action="" method="post">
+            <input id="sentence_id" type="number" name="sentence_id">
+            <input id="morphology-input" type="text" name="morphology">
+            <input id="syntax-input" type="text" name="syntax">
+        </form>
+    </div>
+</main>
+
+<!-- TEMPLATES -->
+<template id="dropdown-template">
+    <!-- dropdown -->
+    <div class="four wide column">
+        <div class="ui dropdown fluid button">
+            <span class="txt">Ot</span>
+            {{!-- <div class="menu">
+                <!-- <div class="item">Announcement</div> -->
+            </div> --}}
+        </div>
+    </div>
+</template>
+
+<template id="button-template">
+    <!-- dropdown -->
+    <div class="four wide column">
+        <div class="ui fluid button">
+            <span class="text">Ot</span>
+        </div>
+    </div>
+</template>
+
+<template id="word-template">
+    <div class="element">
+        <span class="word"></span>
+        <div class="indicators">
+            <div class="red"></div>
+            <div class="blue"></div>
+        </div>
+    </div>
+</template>
+
+<template id="text-template">
+    <div id="text">{{sentence.text}}</div>
+    <div id="text-id">{{sentence.id}}</div>
+</template>
+
+<script src="/lib/refactor/buttons/morph_buttons.json.js"></script>
+<script src="/lib/refactor/buttons/sintax_buttons.json.js"></script>
+<script src="/lib/refactor/views.js"></script>
+<script src="/lib/refactor/generator.js"></script>
+
+<script src="/lib/refactor/Word.js"></script>
+<script src="/lib/refactor/CircularList.js"></script>
+<script src="/lib/refactor/ButtonGroup.js"></script>
+<script src="/lib/refactor/Analyzer.js"></script>
+<script src="/lib/refactor/analyze-control.js"></script>
+
+<script src="/lib/init.js"></script>

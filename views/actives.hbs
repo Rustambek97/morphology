@@ -1,0 +1,25 @@
+<main>
+    <h1>Faollar</h1>
+    <br>
+
+    <div class="ui cards">
+            {{#each users}}
+            <div class="ui fluid card">
+                <div class="content">
+                    <div class="ui grid">
+                        <div class="one wide column">
+                            <img src="/images/profile2.png" width="44px" alt="">
+                        </div>
+                        <div class="fifteen wide column">
+                            <h3>{{name}}</h3>
+                            Teglangan so'zlar: {{count}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+    </div>
+    <br>
+</main>
+
+<script src="./lib/init.js"></script>

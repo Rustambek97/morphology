@@ -1,0 +1,45 @@
+<main>
+    <h2>Barcha matnlar</h2>
+    <br>
+    <div class="ui cards">
+        {{#each sentences}}
+        <div class="ui fluid card">
+            <div class="content">
+                <div class="ui horizontal medium label">{{id}}</div>
+                <a href="/analyze/tags/{{id}}" class="ui right labeled blue icon right floated mini button">
+                    Teglar
+                    <i class="angle right icon"></i>
+                </a>
+            </div>
+            <div class="content">
+                <p>{{text}}</p>
+            </div>
+            <div class="content">
+                <a href="/sentence/manage/delete/{{id}}" class="ui labeled icon mini button">
+                    O'chirish
+                    <i class="ui icon trash"></i>
+                </a>
+                <a href="/sentence/manage/download/{{id}}" class="ui labeled icon mini button">
+                    Yuklab olish
+                    <i class="ui icon download"></i>
+                </a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <br>
+    {{#if paging}}
+    <div class="ui stackable buttons">
+        <a href="?p={{paging.start}}" class="ui icon button">
+            <i class="left chevron icon"></i>
+        </a>
+        {{#each paging.pages}}
+        <a href="?p={{number}}" class="ui {{active}} button">{{number}}</button>
+            {{/each}}
+            <a href="?p={{paging.end}}" class="ui icon button">
+                <i class="right chevron icon"></i>
+            </a>
+    </div>
+    {{/if}}
+</main>

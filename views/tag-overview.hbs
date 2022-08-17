@@ -1,0 +1,25 @@
+<main style="width: 60%;">
+    <div class="ui blue large label">{{sentence.id}}</div>
+    <div class="ui fluid card">
+        <div class="content">{{sentence.text}}</div>
+    </div>
+    
+    <div class="ui cards">
+        {{#each analyzes}}
+        <div class="ui fluid card">
+            <div class="content">
+                <h4>
+                    <div class="ui horizontal medium label">{{@index}}</div>
+                    {{user}}
+                </h4>
+            </div>
+            <div class="content">
+                <h4>Morfologik:</h4>
+                <div class="text">{{morph}}</div>
+                <h4>Sintaktik:</h4>
+                <div class="text">{{syntax}}</div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</main>

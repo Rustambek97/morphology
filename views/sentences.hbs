@@ -1,0 +1,73 @@
+<main>
+    <h1>Matnlar</h1>
+    <br>
+    <div class="ui stackable grid">
+        <div class="ten wide column">
+            {{#if user}}
+                <a href="/analyze" class="ui icon labeled button positive shuffle">
+                    <i class="ui icon play"></i>
+                    Teglash
+                </a>
+            {{/if}}
+        </div>
+        <div class="six wide right aligned column">
+{{!--             <div class="ui icon right floated fluid input">
+                <input type="text" placeholder="Search...">
+                <i class="search link icon"></i>
+            </div>
+ --}}        
+         {{#if user.isAdmin}}
+                <a href="/register" class="ui icon labeled button blue shuffle">
+                    <i class="ui large icon plus"></i>
+                    New User
+                </a>
+                <a href="/sentence/manage" class="ui icon labeled button black shuffle">
+                    <i class="ui large icon cog"></i>
+                    Boshqaruv
+                </a>
+        {{/if}}
+        </div>
+    </div>
+
+    <br>
+
+    <div class="ui cards">
+        {{#each sentences}}
+            <div class="ui fluid card">
+                <div class="content">
+                    <span class="ui blue label">{{id}}</span>
+                    {{!-- {{#if color}} --}}
+                    {{#if check}}
+                        <i class="ui green large check icon"></i>
+                    {{else}}
+                        <span class="ui {{color}} label">{{count}}</span>
+                    {{/if}}
+                    {{!-- {{/if}} --}}
+                    <a href="/analyze/tags/{{id}}" class="ui right floated primary button">
+                        Teglar
+                    </a>
+                </div>
+                <div class="content">
+                    <p class="p-text">{{text}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+    <br>
+    {{#if paging}}
+        <div class="ui pagination menu">
+                <a class="item" href="?p={{paging.start}}" >
+                    <i class="left chevron icon"></i>
+                </a>
+                {{#each paging.pages}}
+                    <a class="item {{active}}" href="?p={{number}}">{{number}}</button>
+                {{/each}}
+                <a class="item" href="?p={{paging.end}}">
+                    <i class="right chevron icon"></i>
+                </a>
+        </div>
+    {{/if}}
+
+</main>
+
+<script src="./lib/init.js"></script>
